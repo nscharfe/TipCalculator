@@ -8,18 +8,56 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    @IBOutlet weak var billField: UITextField!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var tipControl: UISegmentedControl!
+    
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let tipPercentages = [0.18, 0.20, 0.22]
+    let tenMinutes = NSTimeInterval(60 * 10)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // If we have a cached bill that is less than 10 minutes old,
+        // load it. Otherwise leave the bill text field empty
+        let cachedBill = userDefaults.dictionaryForKey(cachedBillKey)
+        if cachedBill != nil {
+            let cachedBillDict = cachedBill as Dictionary!
+            if NSDate().timeIntervalSinceDate(cachedBillDict["date"] as NSDate) < tenMinutes {
+                billField.text = cachedBillDict["bill"] as String
+            }
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tipControl.selectedSegmentIndex = userDefaults.integerForKey(defaultTipIndexKey)
+        onEditingChanged(tipControl)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
+    @IBAction func onEditingChanged(sender: AnyObject) {
+        let billAmount = (billField.text as NSString).doubleValue
+        let tipAmount = billAmount * tipPercentages[tipControl.selectedSegmentIndex]
+        
+        // Cache last bill to NSUserDefaults every time the user updates the bill value
+        let billToCache = ["bill": billField.text, "date": NSDate()]
+        NSUserDefaults.standardUserDefaults().setObject(billToCache, forKey: cachedBillKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        tipLabel.text = String(format: "$%.2f", tipAmount)
+        totalLabel.text = String(format: "$%.2f", tipAmount + billAmount)
+    }
+    
+    
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true)
+    }
 }
-

@@ -13,6 +13,8 @@
 		873F04A31A6DC9D900A90319 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873F04A21A6DC9D900A90319 /* Images.xcassets */; };
 		873F04A61A6DC9D900A90319 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 873F04A41A6DC9D900A90319 /* LaunchScreen.xib */; };
 		873F04B21A6DC9D900A90319 /* TipCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F04B11A6DC9D900A90319 /* TipCalculatorTests.swift */; };
+		873F04BC1A6DE3FE00A90319 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F04BB1A6DE3FE00A90319 /* SettingsViewController.swift */; };
+		873F04BE1A6E1B8500A90319 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F04BD1A6E1B8500A90319 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		873F04AB1A6DC9D900A90319 /* TipCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		873F04B01A6DC9D900A90319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		873F04B11A6DC9D900A90319 /* TipCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorTests.swift; sourceTree = "<group>"; };
+		873F04BB1A6DE3FE00A90319 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		873F04BD1A6E1B8500A90319 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 				873F049B1A6DC9D900A90319 /* AppDelegate.swift */,
 				873F049D1A6DC9D900A90319 /* ViewController.swift */,
 				873F049F1A6DC9D900A90319 /* Main.storyboard */,
+				873F04BD1A6E1B8500A90319 /* Constants.swift */,
+				873F04BB1A6DE3FE00A90319 /* SettingsViewController.swift */,
 				873F04A21A6DC9D900A90319 /* Images.xcassets */,
 				873F04A41A6DC9D900A90319 /* LaunchScreen.xib */,
 				873F04991A6DC9D900A90319 /* Supporting Files */,
@@ -214,6 +220,8 @@
 			files = (
 				873F049E1A6DC9D900A90319 /* ViewController.swift in Sources */,
 				873F049C1A6DC9D900A90319 /* AppDelegate.swift in Sources */,
+				873F04BC1A6DE3FE00A90319 /* SettingsViewController.swift in Sources */,
+				873F04BE1A6E1B8500A90319 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
